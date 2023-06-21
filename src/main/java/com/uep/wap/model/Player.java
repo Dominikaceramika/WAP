@@ -1,10 +1,9 @@
 package com.uep.wap.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.management.relation.Role;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="players")
@@ -14,20 +13,27 @@ public class Player {
     @Column(name ="id")
     private Integer id;
 
-    @Column(name = "firstName")
+    @Column(name = "firstName", nullable=false)
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "lastName", nullable=false)
     private String lastName;
 
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable=false, unique=true)
     private String email;
 
     @Column(name = "birthDate")
     private Date birthDate;
+
+    @ManyToMany(mappedBy = "playerList")
+    private List<Match> match;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
 
     //get i set
     public void setId(Integer id){
@@ -71,4 +77,7 @@ public class Player {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+    public String getPassword() {return password;}
+    public void setPassword(String password) {this.password= password;}
 }

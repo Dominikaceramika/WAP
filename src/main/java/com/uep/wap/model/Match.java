@@ -1,8 +1,5 @@
 package com.uep.wap.model;
 
-import com.uep.wap.dto.RefereeDTO;
-import com.uep.wap.model.Player;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -22,13 +19,15 @@ public class Match {
     private String score;
 
     @Column(name = "match date")
-    private Date matchDate;
+    private String matchDate;
 
     @Column(name = "court")
     private String court;
 
-    @OneToMany(mappedBy = "match", cascade = CascadeType.ALL)
-    @Column(name = "player list")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "match_player",
+                joinColumns = @JoinColumn(name = "match_id"),
+                inverseJoinColumns = @JoinColumn(name = "player_id"))
     private List<Player> playerList;
 
     @Column(name = "referee")
@@ -52,10 +51,10 @@ public class Match {
     public void setScore(String score) {
         this.score = score;
     }
-    public Date getMatchDate() {
+    public String getMatchDate() {
         return matchDate;
     }
-    public void setMatchDate(Date matchDate) {
+    public void setMatchDate(String matchDate) {
         this.matchDate = matchDate;
     }
     public String getCourt() {

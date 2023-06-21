@@ -14,7 +14,7 @@ public class PlayerController {
     public PlayerController(PlayerService playerService) {this.playerService = playerService;}
 
     @GetMapping(path = "/players")
-    public Iterable<Player> getAllStudents() {return playerService.getAllPlayers();}
+    public Iterable<Player> getAllPlayers() {return playerService.getAllPlayers();}
 
     @PostMapping(path = "/players")
     public String addPlayers (@RequestBody PlayerDTO playerDTO){

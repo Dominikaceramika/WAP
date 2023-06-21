@@ -9,8 +9,9 @@ public class PlayerDTO {
     private String gender;
     private String email;
     private Date birthDate;
+    private String password;
     private List<MatchDTO> matchDTOList;
-    public PlayerDTO(int id, String firstName, String lastName, String gender, String email, Date birthDate, List<MatchDTO>
+    public PlayerDTO(int id, String firstName, String lastName, String gender, String email, Date birthDate,String password, List<MatchDTO>
             matchDTOList) {
         this.id = id;
         this.firstName = firstName;
@@ -18,6 +19,7 @@ public class PlayerDTO {
         this.gender = gender;
         this.email = email;
         this.birthDate = birthDate;
+        this.password = password;
         this.matchDTOList = matchDTOList;
     }
     // Gettery i settery
@@ -57,6 +59,8 @@ public class PlayerDTO {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+    public String getPassword(){return password;}
+    public void setPassword(String password){this.password = password;}
     public List<MatchDTO> getMatchList() {
         return matchDTOList;
     }

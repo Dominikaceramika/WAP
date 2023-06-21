@@ -9,11 +9,11 @@ public class MatchDTO {
     private int id;
     private String category;
     private String score;
-    private Date matchDate;
+    private String matchDate;
     private String court;
     private List<Player> playerList;
     private String referee;
-    public MatchDTO(int id, String category, String score, Date matchDate, String court, List<Player> playerList,
+    public MatchDTO(int id, String category, String score, String matchDate, String court, List<Player> playerList,
                     String referee) {
         this.id = id;
         this.category = category;
@@ -42,10 +42,10 @@ public class MatchDTO {
     public void setScore(String score) {
         this.score = score;
     }
-    public Date getMatchDate() {
+    public String getMatchDate() {
         return matchDate;
     }
-    public void setMatchDate(Date matchDate) {
+    public void setMatchDate(String matchDate) {
         this.matchDate = matchDate;
     }
     public String getCourt() {
