@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Score Page</title>
+</head>
+<body>
+<h2>Score Page</h2>
+
+<h3>Ongoing Matches:</h3>
+<ul>
+  <li th:each="match : ${ongoingMatches}">
+    <p th:text="${match.category}"></p>
+    <p th:text="${match.score}"></p>
+  </li>
+</ul>
+
+<h3>Completed Matches:</h3>
+<ul>
+  <li th:each="match : ${completedMatches}">
+    <p th:text="${match.category}"></p>
+    <p th:text="${match.score}"></p>
+  </li>
+</ul>
+</body>
+</html>
